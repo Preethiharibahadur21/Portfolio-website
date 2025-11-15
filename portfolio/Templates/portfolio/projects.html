@@ -1,0 +1,86 @@
+<div class="container mt-5 mb-5">
+ <h2 class="text-center fw-bold mb-5" style="color: whitesmoke;"><b> My Projects</b> </h2>
+
+
+
+  <div class="row justify-content-center">
+    {% for project in projects %}
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card border-0 shadow-lg h-100 text-center p-4 d-flex align-items-center justify-content-center">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-gradient text-center">{{ project.title }}</h5>
+            <p class="card-text text-light text-center">{{ project.description }}</p>
+
+            {% if project.link %}
+              <a href="{{ project.link }}" class="btn btn-outline-light mt-3">🔗 View Project</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #bb95d5, #2575fc);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h2 {
+    letter-spacing: 1px;
+  }
+
+  /* Project Card Styling */
+  .project-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transition: all 0.4s ease;
+    text-align: center;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #ffcc70, #ff8177);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin-bottom: 15px;
+  }
+
+  .btn-outline-light {
+    border-radius: 25px;
+    padding: 10px 22px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-light:hover {
+    background: #fff;
+    color: #333;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .card-title {
+      font-size: 1.2rem;
+    }
+    .card-text {
+      font-size: 0.95rem;
+    }
+  }
+</style>
